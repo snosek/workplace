@@ -58,6 +58,7 @@ namespace WorkplaceApp.frontend
                     Console.WriteLine(" BRAK PODATKU");
                     break;
                 case not 0:
+
                     Console.WriteLine($" POTRĄCONY PODATEK (18%): {Math.Round(Taxes, 2)} zł");
                     break;
             }
@@ -78,22 +79,15 @@ namespace WorkplaceApp.frontend
             DisplayWorkersInfo(ChosenWorker);
             Console.Write(" PROSZĘ PODAĆ ILOŚĆ PRZEPRACOWANYCH DNI PRZEZ PRACOWNIKA (MAX. 20): ");
             int WorkedDays = int.Parse(Console.ReadLine());
-            while (true)
+            while (WorkedDays < 0 || WorkedDays > 20)
             {
-                if (WorkedDays < 0 || WorkedDays > 20)
-                {
-                    Console.Clear();
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine(" BŁĘDNA WARTOŚĆ. ILOŚĆ PRZEPRACOWANYCH DNI POWINNA BYĆ POMIĘDZY 0 A 20.");
-                    Console.ResetColor();
-                    DisplayWorkersInfo(ChosenWorker);
-                    Console.Write(" PROSZĘ PODAĆ ILOŚĆ PRZEPRACOWANYCH DNI PRZEZ PRACOWNIKA (MAX. 20): ");
-                    WorkedDays = int.Parse(Console.ReadLine());
-                }
-                else
-                {
-                    break;
-                }
+                Console.Clear();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" BŁĘDNA WARTOŚĆ. ILOŚĆ PRZEPRACOWANYCH DNI POWINNA BYĆ POMIĘDZY 0 A 20.");
+                Console.ResetColor();
+                DisplayWorkersInfo(ChosenWorker);
+                Console.Write(" PROSZĘ PODAĆ ILOŚĆ PRZEPRACOWANYCH DNI PRZEZ PRACOWNIKA (MAX. 20): ");
+                WorkedDays = int.Parse(Console.ReadLine());
             }
             Console.Clear();
 
