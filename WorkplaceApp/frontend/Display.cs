@@ -21,7 +21,7 @@ namespace WorkplaceApp.frontend
         {
             Console.Clear();
             Console.WriteLine(" ID | IMIĘ I NAZWISKO | DATA UR. | STANOWISKO");
-            foreach (Worker worker in Workplace.Workers)
+            foreach (var worker in Workplace.Workers)
             {
                 Console.WriteLine($" {worker.Id} | {worker.Name} | {worker.BirthDate.ToShortDateString()} | {worker.Position}");
             }
@@ -58,7 +58,6 @@ namespace WorkplaceApp.frontend
                     Console.WriteLine(" BRAK PODATKU");
                     break;
                 case not 0:
-
                     Console.WriteLine($" POTRĄCONY PODATEK (18%): {Math.Round(Taxes, 2)} zł");
                     break;
             }
